@@ -13,5 +13,7 @@ namespace StrideGo.Domain.Entities
         public int QuestionCategoryId { get; set; }
         public string Text { get; set; }
         public bool IsActive { get; set; }
+
+        public ICollection<Answer> Answers { get; set; }
     }
 }
