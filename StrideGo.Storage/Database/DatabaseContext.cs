@@ -11,6 +11,7 @@ namespace StrideGo.Storage
         public DbSet<Question> Questions { get; set; }
         public DbSet<QuestionCategory> QuestionCategories { get; set; }
         public DbSet<QuestionVote> QuestionVotes { get; set; }
+        public DbSet<Answer> Answers { get; set; }
 
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
