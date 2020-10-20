@@ -7,7 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="9.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StrideGo.Business\StrideGo.Business.csproj" />
+    <ProjectReference Include="..\StrideGo.Storage\StrideGo.Storage.csproj" />
   </ItemGroup>
 
 

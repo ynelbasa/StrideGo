@@ -9,6 +9,7 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
     <PackageReference Include="MediatR" Version="9.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,7 +17,12 @@
     <Folder Include="Answers\Queries\" />
     <Folder Include="Common\Exceptions\" />
     <Folder Include="Common\Behaviours\" />
-    <Folder Include="Questions\Commands\" />
+    <Folder Include="Questions\Commands\CreateQuestion\" />
+    <Folder Include="Questions\Commands\UpdateQuestion\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StrideGo.Domain\StrideGo.Domain.csproj" />
   </ItemGroup>
 
 </Project>
