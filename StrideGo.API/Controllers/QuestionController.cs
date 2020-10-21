@@ -1,0 +1,65 @@
+﻿using System.Threading.Tasks;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using StrideGo.Business.Questions.Queries.GetQuestionList;
+using StrideGo.Business.Questions.Queries.GetQuestionDetail;
+using StrideGo.Business.Questions.Commands.CreateQuestion;
+using StrideGo.Business.Questions.Commands.UpdateQuestion;
+using Microsoft.AspNetCore.Http;
+using StrideGo.Business.Questions.Commands.DeleteQuestion;
+
+namespace StrideGo.API.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class QuestionController : ControllerBase
+    {
+        private readonly IMediator _mediator;
+        public QuestionController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
+        // GET api/<QuestionController>
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var questionList = await _mediator.Send(new GetQuestionListQuery());
+            return Ok(questionList);
+        }
+
+        // GET api/<QuestionController>/5
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            var questionList = await _mediator.Send(new GetQuestionDetailQuery { Id = id });
+            return Ok(questionList);
+        }
+
+        // POST api/<QuestionController>
+        [HttpPost]
+        public async Task<ActionResult<int>> Create([FromBody] CreateQuestionCommand command)
+        {
+            var questionId = await _mediator.Send(command);
+            return Ok(questionId);
+        }
+
+        // PUT api/<QuestionController>
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> Update([FromBody] UpdateQuestionCommand command)
+        {
+            await _mediator.Send(command);
+            return NoContent();
+        }
+
+        // DELETE api/<QuestionController>/5
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _mediator.Send(new DeleteQuestionCommand { Id = id });
+            return NoContent();
+        }
+    }
+}
