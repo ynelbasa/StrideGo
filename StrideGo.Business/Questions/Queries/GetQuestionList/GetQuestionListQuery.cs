@@ -25,7 +25,7 @@ namespace StrideGo.Business.Questions.Queries.GetQuestionList
             public async Task<QuestionListViewModel> Handle(GetQuestionListQuery request, CancellationToken cancellationToken)
             {
                 var questionList = await _context.Questions
-                    .Where(q=> q.IsActive)
+                    .Where(q => q.IsActive)
                     .ProjectTo<QuestionViewModel>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
 
