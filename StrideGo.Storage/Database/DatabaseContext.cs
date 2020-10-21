@@ -16,5 +16,14 @@ namespace StrideGo.Storage
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<QuestionCategory>().HasData(
+                new QuestionCategory { Id = 1, Name = "Training" },
+                new QuestionCategory { Id = 2, Name = "Injury / Recovery" },
+                new QuestionCategory { Id = 3, Name = "Running Gears" },
+                new QuestionCategory { Id = 4, Name = "Nutrition" });
+        }
     }
 }
