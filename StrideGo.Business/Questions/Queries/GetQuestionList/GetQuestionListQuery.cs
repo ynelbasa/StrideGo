@@ -4,6 +4,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using StrideGo.Business.Common.Interfaces;
 using StrideGo.Business.Questions.Queries.GetQuestionDetail;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -24,6 +25,7 @@ namespace StrideGo.Business.Questions.Queries.GetQuestionList
             public async Task<QuestionListViewModel> Handle(GetQuestionListQuery request, CancellationToken cancellationToken)
             {
                 var questionList = await _context.Questions
+                    .Where(q=> q.IsActive)
                     .ProjectTo<QuestionViewModel>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
 
