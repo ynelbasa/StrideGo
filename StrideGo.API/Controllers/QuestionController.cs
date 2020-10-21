@@ -22,6 +22,7 @@ namespace StrideGo.API.Controllers
 
         // GET api/<QuestionController>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
         {
             var questionList = await _mediator.Send(new GetQuestionListQuery());
@@ -30,6 +31,7 @@ namespace StrideGo.API.Controllers
 
         // GET api/<QuestionController>/5
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Get(int id)
         {
             var questionList = await _mediator.Send(new GetQuestionDetailQuery { Id = id });
@@ -38,6 +40,7 @@ namespace StrideGo.API.Controllers
 
         // POST api/<QuestionController>
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<int>> Create([FromBody] CreateQuestionCommand command)
         {
             var questionId = await _mediator.Send(command);
@@ -47,6 +50,7 @@ namespace StrideGo.API.Controllers
         // PUT api/<QuestionController>
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Update([FromBody] UpdateQuestionCommand command)
         {
             await _mediator.Send(command);
@@ -56,6 +60,7 @@ namespace StrideGo.API.Controllers
         // DELETE api/<QuestionController>/5
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
             await _mediator.Send(new DeleteQuestionCommand { Id = id });
