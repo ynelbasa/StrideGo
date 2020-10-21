@@ -29,6 +29,7 @@ namespace StrideGo.Business.Questions.Commands.CreateQuestion
 
             _context.Questions.Add(entity);
             await _context.SaveChangesAsync(cancellationToken);
+
             return entity.Id;
         }
     }
