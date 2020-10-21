@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StrideGo.Domain.Entities;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace StrideGo.Business.Common.Interfaces
 {
@@ -11,5 +13,7 @@ namespace StrideGo.Business.Common.Interfaces
         DbSet<QuestionCategory> QuestionCategories { get; set; }
         DbSet<QuestionVote> QuestionVotes { get; set; }
         DbSet<Answer> Answers { get; set; }
+
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }
