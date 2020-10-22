@@ -8,7 +8,7 @@ namespace StrideGo.Business.Answers.Commands.CreateAnswer
     public class CreateAnswerCommand : IRequest<int>
     {
         public int QuestionId { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public string Text { get; set; }
     }
 }

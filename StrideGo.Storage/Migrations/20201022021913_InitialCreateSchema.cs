@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace StrideGo.Storage.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitialCreateSchema : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -32,7 +32,7 @@ namespace StrideGo.Storage.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     QuestionId = table.Column<int>(nullable: false),
-                    UserId = table.Column<int>(nullable: false),
+                    UserId = table.Column<string>(nullable: true),
                     IsUpvote = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
@@ -73,11 +73,10 @@ namespace StrideGo.Storage.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(nullable: false),
+                    UserId = table.Column<string>(nullable: true),
                     QuestionCategoryId = table.Column<int>(nullable: false),
                     Text = table.Column<string>(nullable: true),
-                    IsActive = table.Column<bool>(nullable: false),
-                    UserId1 = table.Column<string>(nullable: true)
+                    IsActive = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -90,8 +89,8 @@ namespace StrideGo.Storage.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Question_User_UserId1",
-                        column: x => x.UserId1,
+                        name: "FK_Question_User_UserId",
+                        column: x => x.UserId,
                         principalSchema: "StrideGo",
                         principalTable: "User",
                         principalColumn: "Id",
@@ -106,7 +105,7 @@ namespace StrideGo.Storage.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     QuestionId = table.Column<int>(nullable: false),
-                    UserId = table.Column<int>(nullable: false),
+                    UserId = table.Column<string>(nullable: true),
                     Text = table.Column<string>(nullable: true),
                     IsActive = table.Column<bool>(nullable: false)
                 },
@@ -147,10 +146,10 @@ namespace StrideGo.Storage.Migrations
                 column: "QuestionCategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Question_UserId1",
+                name: "IX_Question_UserId",
                 schema: "StrideGo",
                 table: "Question",
-                column: "UserId1");
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

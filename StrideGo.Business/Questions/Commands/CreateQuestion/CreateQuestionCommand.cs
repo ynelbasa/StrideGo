@@ -7,7 +7,7 @@ namespace StrideGo.Business.Questions.Commands.CreateQuestion
 {
     public class CreateQuestionCommand : IRequest<int>
     {
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public int QuestionCategoryId { get; set; }
         public string Text { get; set; }
     }
