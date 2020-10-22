@@ -13,7 +13,7 @@ namespace StrideGo.Business.Questions.Queries.GetQuestionDetail
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Question, QuestionViewModel>()
-                .ForMember(q => q.AskedBy, opt => opt.MapFrom(u => u.User != null ? $"{u.User.FirstName} {u.User.LastName}" : string.Empty));
+                .ForMember(q => q.AskedBy, opt => opt.MapFrom(u => u.User != null ? $"{u.User.UserName}" : string.Empty));
         }
     }
 }
