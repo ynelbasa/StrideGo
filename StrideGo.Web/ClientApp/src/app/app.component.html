@@ -1,6 +1,9 @@
-<body>
-  <app-nav-menu></app-nav-menu>
-  <div class="container">
-    <router-outlet></router-outlet>
+<div class="d-flex" id="wrapper">
+  <app-side-nav></app-side-nav>
+  <div id="content-wrapper">
+    <app-top-nav></app-top-nav>
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-</body>
+</div>

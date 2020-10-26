@@ -1,0 +1,35 @@
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin 0.25s ease-out;
+  -moz-transition: margin 0.25s ease-out;
+  -o-transition: margin 0.25s ease-out;
+  transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+}
+
+.list-group-item {
+  padding: 0.5rem 2.5rem !important;
+  color: #142b40;
+}
+
+.list-group-item.selected,
+.list-group-item-action:not(.active):active,
+.list-group-item-action:not(.active):hover {
+  background-color: #f8f9fa !important;
+  color: #2abbdd;
+}

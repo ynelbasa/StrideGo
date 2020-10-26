@@ -1,0 +1,30 @@
+<div class="bg-gray border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading box-shadow"><img src="assets/logo-text.svg" width="auto" height="auto"> </div>
+    <div class="list-group list-group-flush">
+        <a class="list-group-item list-group-item-action bg-gray border-0" [routerLink]="['/']"
+            routerLinkActive="selected" [routerLinkActiveOptions]="{ exact: true }">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a class="list-group-item list-group-item-action bg-gray border-0" [routerLink]="['t/training']"
+            routerLinkActive="selected">
+            <i class="fas fa-running"></i>
+            <span>Training</span>
+        </a>
+        <a class="list-group-item list-group-item-action bg-gray border-0" [routerLink]="['t/injury_recovery']"
+            routerLinkActive="selected">
+            <i class=" fas fa-crutch"></i>
+            <span>Injury & Recovery</span>
+        </a>
+        <a class="list-group-item list-group-item-action bg-gray border-0" [routerLink]="['t/running_gears']"
+            routerLinkActive="selected">
+            <i class=" fas fa-shoe-prints"></i>
+            <span>Running Gears</span>
+        </a>
+        <a class="list-group-item list-group-item-action bg-gray border-0" [routerLink]="['t/nutrition']"
+            routerLinkActive="selected">
+            <i class=" fas fa-utensils"></i>
+            <span>Nutrition</span>
+        </a>
+    </div>
+</div>
