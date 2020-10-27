@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment'
 
 enum QuestionCategory {
   Training = 'training',
@@ -12,12 +13,18 @@ enum QuestionCategory {
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
 
 export class HomeComponent implements OnInit {
-  public pageTitle = "Home";
+  public pageTitle = "Home";  
+  public questions: Question[];
   
-  constructor(private route: ActivatedRoute) { }
+  constructor(http: HttpClient, private route: ActivatedRoute) {
+     http.get<Question[]>(environment.apiUrl + 'question').subscribe(result => {
+      this.questions = result['questions'];
+    }, error => console.error(error));
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params  => {
@@ -41,4 +48,10 @@ export class HomeComponent implements OnInit {
       }
     });
   }
+}
+
+interface Question {
+  id: number;
+  text: string;
+  askedBy: string;
 }

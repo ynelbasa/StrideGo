@@ -1,18 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 
-.btn-default {
+.btn-default-dark,
+.btn-default-light {
   color: #ffffff !important;
-  background-color: #142b40;
   border-radius: 20px;
-  padding: 5px 50px;
+  padding: 5px 25px;
   min-width: 120px;
   text-align: center;
   font-weight: bold;
-  border-color: #1861ac;
+}
+
+.btn-default-dark {
+  background-color: #142b40;
+}
+
+.btn-default-light {
+  background-color: #2abbdd;
 }
 
 .bg-gray {
   background-color: #f8f9fa;
+}
+
+.color-green {
+  color: #2eb872;
+}
+
+.color-red {
+  color: #fa4659;
 }
 
 .fa,

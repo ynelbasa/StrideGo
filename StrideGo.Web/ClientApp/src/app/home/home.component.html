@@ -1,1 +1,36 @@
-<h3>{{ pageTitle }}</h3>
+<div class="question-container m-4">
+  <div class="action-container d-flex flex-row-reverse ">
+    <div class="btn-default-light">
+      <i class="fas fa-plus-circle"></i>
+      <span>Ask Question</span>
+    </div>
+  </div>
+  <div *ngIf="questions">
+    <div class="question-card" *ngFor="let question of questions">
+      <div class="d-flex bd-highlight mb-3 font-weight-500 align-items-center">
+        <div class="bd-highlight">
+          <div class="profile-thumbnail"></div>
+        </div>
+        <div class="bd-highlight">
+          <span>{{ question.askedBy }}</span>
+        </div>
+        <div class="ml-auto bd-highlighty">
+          <i class="fas fa-edit fa-lg"></i>
+          <i class="fas fa-times-circle fa-lg color-red"></i>
+        </div>
+      </div>
+      <div class="font-weight-bold m-3 text-truncate">{{ question.text }} </div>
+      <div class="d-flex bd-highlight m-3 align-items-center">
+        <div class="mr-auto bd-highlight">
+          <i class="fas fa-arrow-alt-circle-up fa-lg color-green"></i>
+          <span class="color-green">35</span>
+          <i class="fas fa-arrow-alt-circle-down fa-lg color-red"></i>
+
+        </div>
+        <div class="p-2 bd-highlight">
+          <i class="fas fa-comments fa-lg"></i> 3 answers
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
