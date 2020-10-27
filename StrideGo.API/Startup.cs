@@ -14,9 +14,13 @@ namespace StrideGo.API
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IWebHostEnvironment _env;
+        private readonly string AllowedOrigins = "_allowedOrigins";
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            _env = env;
         }
 
         public IConfiguration Configuration { get; }
@@ -24,6 +28,18 @@ namespace StrideGo.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            if (_env.IsDevelopment())
+            {
+                services.AddCors(options =>
+                {
+                    options.AddPolicy(AllowedOrigins,
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin().AllowAnyHeader();
+                    });
+                });
+            }
+
             services.AddStorage(Configuration);
             services.AddBusiness();
 
@@ -58,6 +74,8 @@ namespace StrideGo.API
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "StrideGo API v1");
                 });
             }
+
+            app.UseCors(AllowedOrigins);
 
             app.UseHttpsRedirection();
 
