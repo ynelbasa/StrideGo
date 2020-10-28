@@ -35,4 +35,8 @@ export class QuestionService {
     let question = { id: questionData.id, text: questionData.text };
     return this.http.put(this.questionApiUrl, question);
   }
+
+  delete(questionId) {
+    return this.http.delete(this.questionApiUrl + '/' + questionId);
+  }
 }

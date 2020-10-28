@@ -14,6 +14,7 @@
     </div>
   </div>
   <div *ngIf="questions">
-    <question *ngFor="let question of questions" [question]="question"></question>
+    <question *ngFor="let question of questions" [question]="question" (deleteQuestionEvent)="deleteQuestion($event)">
+    </question>
   </div>
 </div>

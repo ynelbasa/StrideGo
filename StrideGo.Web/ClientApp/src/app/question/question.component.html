@@ -8,7 +8,7 @@
         </div>
         <div class="ml-auto bd-highlighty">
             <i class="fas fa-edit fa-lg" (click)="toggleEditing()"></i>
-            <i class="fas fa-times-circle fa-lg color-red"></i>
+            <i class="fas fa-times-circle fa-lg color-red" (click)="deleteQuestion()"></i>
         </div>
     </div>
     <div class="font-weight-bold m-3 text-truncate" *ngIf="!question.isEditing">{{ question.text }} </div>

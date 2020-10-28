@@ -59,4 +59,11 @@ export class HomeComponent implements OnInit {
       this.showAddQuestionForm = false;
     }, error => console.error(error));
   }
+
+  deleteQuestion(question) {
+    let index: number = this.questions.indexOf(question);
+    if (index !== -1) {
+        this.questions.splice(index, 1);
+    }        
+  }
 }
