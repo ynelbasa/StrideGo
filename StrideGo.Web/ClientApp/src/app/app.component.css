@@ -13,4 +13,9 @@
     min-width: 0;
     width: 100%;
   }
+
+  .btn-default-light,
+  .btn-default-dark {
+    padding: 5px 15px;
+  }
 }

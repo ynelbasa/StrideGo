@@ -1,1 +1,34 @@
-<p>question works!</p>
+<div class="question-card">
+    <div class="d-flex bd-highlight mb-3 font-weight-500 align-items-center">
+        <div class="bd-highlight">
+            <div class="profile-thumbnail"></div>
+        </div>
+        <div class="bd-highlight">
+            <span>{{ question.askedBy }}</span>
+        </div>
+        <div class="ml-auto bd-highlighty">
+            <i class="fas fa-edit fa-lg" (click)="toggleEditing()"></i>
+            <i class="fas fa-times-circle fa-lg color-red"></i>
+        </div>
+    </div>
+    <div class="font-weight-bold m-3 text-truncate" *ngIf="!question.isEditing">{{ question.text }} </div>
+    <div *ngIf="question.isEditing">
+        <textarea class="form-control" [(ngModel)]="question.text" rows="3"></textarea>
+        <div class="d-flex flex-row-reverse my-2">
+            <div class="btn-default-dark" (click)="updateQuestion()">
+                <span>Update</span>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex bd-highlight mt-3 align-items-center">
+        <div class="mr-auto bd-highlight">
+            <i class="fas fa-arrow-alt-circle-up fa-lg color-green"></i>
+            <span class="color-green">35</span>
+            <i class="fas fa-arrow-alt-circle-down fa-lg color-red"></i>
+        </div>
+        <div class="p-2 bd-highlight">
+            <i class="fas fa-comments fa-lg"></i>
+            <span class="text-underline ml-2">3 answers</span>
+        </div>
+    </div>
+</div>

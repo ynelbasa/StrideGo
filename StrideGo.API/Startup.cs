@@ -35,7 +35,7 @@ namespace StrideGo.API
                     options.AddPolicy(AllowedOrigins,
                     builder =>
                     {
-                        builder.AllowAnyOrigin().AllowAnyHeader();
+                        builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
                     });
                 });
             }

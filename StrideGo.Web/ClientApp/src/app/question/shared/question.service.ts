@@ -30,4 +30,9 @@ export class QuestionService {
     
     return this.http.post<number>(this.questionApiUrl, question);
   }
+
+  update(questionData:Question) {
+    let question = { id: questionData.id, text: questionData.text };
+    return this.http.put(this.questionApiUrl, question);
+  }
 }
