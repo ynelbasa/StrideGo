@@ -9,6 +9,8 @@ import { TopNavComponent } from './top-nav/top-nav.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { HomeComponent } from './home/home.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { QuestionComponent } from './question/question.component';
+import { AnswerComponent } from './answer/answer.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     TopNavComponent,
     SideNavComponent,
     HomeComponent,
+    QuestionComponent,
+    AnswerComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
