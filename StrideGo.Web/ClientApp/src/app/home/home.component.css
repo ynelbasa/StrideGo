@@ -25,4 +25,9 @@
     margin: 10px 20px;
     padding: 5px;
   }
+
+  .btn-default-light,
+  .btn-default-dark {
+    padding: 5px 15px;
+  }
 }
