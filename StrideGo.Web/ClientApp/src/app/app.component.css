@@ -4,6 +4,8 @@
 
 #content-wrapper {
   min-width: 100vw;
+  height: 100vh;
+  overflow: auto;
 }
 
 @media (min-width: 768px) {
