@@ -53,6 +53,8 @@ export class HomeComponent implements OnInit {
   createQuestion() {
     this.questionService.create(this.questionTextInput).subscribe(result => {
       this.questions.unshift({id: result, text: this.questionTextInput, askedBy: 'Ynel Basa'});
+
+      // Close question form and reset input fields
       this.questionTextInput = '';
       this.showAddQuestionForm = false;
     }, error => console.error(error));
