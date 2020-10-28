@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   public pageTitle = "Home";  
   public questions: Question[];
   showAddQuestionForm = false;
+  questionTextInput: string = '';
   
   constructor(private route: ActivatedRoute, private questionService: QuestionService) {
    this.questionService.getAll().subscribe(result => {
@@ -47,5 +48,14 @@ export class HomeComponent implements OnInit {
 
   toggleAddQuestionForm() {
     this.showAddQuestionForm = !this.showAddQuestionForm;
+  }
+
+  createQuestion() {
+    this.questionService.create(this.questionTextInput).subscribe(result => {
+      console.log(result);
+      this.questions.unshift({id: result, text: this.questionTextInput, askedBy: 'Ynel Basa'});
+      this.questionTextInput = '';
+      this.showAddQuestionForm = false;
+    }, error => console.error(error));
   }
 }

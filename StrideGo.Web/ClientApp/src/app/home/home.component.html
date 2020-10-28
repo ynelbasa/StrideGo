@@ -6,9 +6,9 @@
     </div>
   </div>
   <div class="ask-question-form" [style.display]="showAddQuestionForm ? 'block' : 'none'">
-    <textarea class="form-control" id="questionTextarea" rows="3"></textarea>
+    <textarea class="form-control" [(ngModel)]="questionTextInput" rows="3"></textarea>
     <div class="d-flex flex-row-reverse my-2">
-      <div class="btn-default-dark">
+      <div class="btn-default-dark" (click)="createQuestion()">
         <span>Ask</span>
       </div>
     </div>
