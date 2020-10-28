@@ -1,8 +1,16 @@
 <div class="question-container m-4">
   <div class="action-container d-flex flex-row-reverse ">
-    <div class="btn-default-light">
+    <div class="btn-default-light" (click)="toggleAddQuestionForm()">
       <i class="fas fa-plus-circle"></i>
       <span>Ask Question</span>
+    </div>
+  </div>
+  <div class="ask-question-form" [style.display]="showAddQuestionForm ? 'block' : 'none'">
+    <textarea class="form-control" id="questionTextarea" rows="3"></textarea>
+    <div class="d-flex flex-row-reverse my-1">
+      <div class="btn-default-dark">
+        <span>Ask</span>
+      </div>
     </div>
   </div>
   <div *ngIf="questions">
@@ -28,7 +36,8 @@
 
         </div>
         <div class="p-2 bd-highlight">
-          <i class="fas fa-comments fa-lg"></i> 3 answers
+          <i class="fas fa-comments fa-lg"></i>
+          <span class="text-underline ml-2">3 answers</span>
         </div>
       </div>
     </div>

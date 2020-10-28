@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 export class TopNavComponent {
   isExpanded = false;
-  showSidebar = true;
 
   collapse() {
     this.isExpanded = false;

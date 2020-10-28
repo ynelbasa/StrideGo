@@ -19,6 +19,7 @@ enum QuestionCategory {
 export class HomeComponent implements OnInit {
   public pageTitle = "Home";  
   public questions: Question[];
+  showAddQuestionForm = false;
   
   constructor(http: HttpClient, private route: ActivatedRoute) {
      http.get<Question[]>(environment.apiUrl + 'question').subscribe(result => {
@@ -47,6 +48,10 @@ export class HomeComponent implements OnInit {
         }   
       }
     });
+  }
+
+  toggleAddQuestionForm() {
+    this.showAddQuestionForm = !this.showAddQuestionForm;
   }
 }
 

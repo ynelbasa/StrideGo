@@ -1,4 +1,5 @@
-.action-container {
+.action-container,
+.ask-question-form {
   margin: 10px 130px;
 }
 

@@ -8,6 +8,7 @@
   min-width: 120px;
   text-align: center;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .btn-default-dark {
@@ -35,4 +36,10 @@
   margin: 0 5px;
   width: 20px;
   height: 20px;
+  cursor: pointer;
+}
+
+.text-underline:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
