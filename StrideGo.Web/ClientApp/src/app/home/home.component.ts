@@ -1,19 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment'
-
-enum QuestionCategory {
-  Training = 'training',
-  InjuryRecovery = 'injury_recovery',
-  RunningGears = 'running_gears',
-  Nutrition = 'nutrition'
-}
+import { Question } from '../question/shared/question'
+import { QuestionService } from '../question/shared/question.service';
+import { QuestionCategory } from '../question/shared/question-category.enum'
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers:  [ QuestionService ]
 })
 
 export class HomeComponent implements OnInit {
@@ -21,8 +16,8 @@ export class HomeComponent implements OnInit {
   public questions: Question[];
   showAddQuestionForm = false;
   
-  constructor(http: HttpClient, private route: ActivatedRoute) {
-     http.get<Question[]>(environment.apiUrl + 'question').subscribe(result => {
+  constructor(private route: ActivatedRoute, private questionService: QuestionService) {
+   this.questionService.getAll().subscribe(result => {
       this.questions = result['questions'];
     }, error => console.error(error));
   }
@@ -53,10 +48,4 @@ export class HomeComponent implements OnInit {
   toggleAddQuestionForm() {
     this.showAddQuestionForm = !this.showAddQuestionForm;
   }
-}
-
-interface Question {
-  id: number;
-  text: string;
-  askedBy: string;
 }
