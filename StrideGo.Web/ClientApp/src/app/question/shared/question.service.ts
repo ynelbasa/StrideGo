@@ -15,8 +15,12 @@ export class QuestionService {
   
   constructor(private http: HttpClient) { }
 
-  getAll():Observable<Question[]> {
-    return this.http.get<Question[]>(this.questionApiUrl);
+  getAll(questionCategoryId:number):Observable<Question[]> {
+    if(questionCategoryId) {
+      return this.http.get<Question[]>(this.questionApiUrl + '?questionCategoryid=' + questionCategoryId);
+    } else {      
+      return this.http.get<Question[]>(this.questionApiUrl);
+    }
   }
 
   create(questionText, questionCategoryId):Observable<number> {

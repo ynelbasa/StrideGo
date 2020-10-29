@@ -18,36 +18,37 @@ export class HomeComponent implements OnInit {
   showAddQuestionForm = false;
   questionTextInput: string = '';
   
-  constructor(private route: ActivatedRoute, private questionService: QuestionService) {
-   this.questionService.getAll().subscribe(result => {
-      this.questions = result['questions'];
-    }, error => console.error(error));
-  }
+  constructor(private route: ActivatedRoute, private questionService: QuestionService) { }
 
   ngOnInit() {
+   
     this.route.params.subscribe(params  => {
       switch(params['category']) {
-        case QuestionCategoryRoute.Training:{       
-        this.pageTitle = 'Training';
-        this.questionCategoryId = QuestionCategory.Training;
+        case QuestionCategoryRoute.Training: {       
+            this.pageTitle = 'Training';
+            this.questionCategoryId = QuestionCategory.Training;
           break;
         }
-        case QuestionCategoryRoute.InjuryRecovery:{ 
-        this.pageTitle = 'Injury and Recovery';
-        this.questionCategoryId = QuestionCategory.InjuryRecovery;
+        case QuestionCategoryRoute.InjuryRecovery: { 
+            this.pageTitle = 'Injury and Recovery';
+            this.questionCategoryId = QuestionCategory.InjuryRecovery;
           break;
         }
         case QuestionCategoryRoute.RunningGears: {
-        this.pageTitle = 'Running Gears';
-        this.questionCategoryId = QuestionCategory.RunningGears;
+            this.pageTitle = 'Running Gears';
+            this.questionCategoryId = QuestionCategory.RunningGears;
           break;
         }
         case QuestionCategoryRoute.Nutrition: {
-        this.pageTitle = 'Nutrition';
-        this.questionCategoryId = QuestionCategory.Nutrition;
+            this.pageTitle = 'Nutrition';
+            this.questionCategoryId = QuestionCategory.Nutrition;
           break;
         }   
-      }
+      } 
+      
+      this.questionService.getAll(this.questionCategoryId).subscribe(result => {
+        this.questions = result['questions'];
+      }, error => console.error(error));
     });
   }
 

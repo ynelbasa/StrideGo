@@ -23,9 +23,9 @@ namespace StrideGo.API.Controllers
         // GET api/<QuestionController>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll(int? questionCategoryId)
         {
-            var questionList = await _mediator.Send(new GetQuestionListQuery());
+            var questionList = await _mediator.Send(new GetQuestionListQuery { QuestionCategoryId = questionCategoryId });
             return Ok(questionList);
         }
 
