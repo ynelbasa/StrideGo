@@ -26,6 +26,8 @@ namespace StrideGo.Business.Questions.Queries.GetQuestionList
             {
                 var questionList = await _context.Questions
                     .Where(q => q.IsActive)
+                    .OrderByDescending(q => q.UpdatedAt)
+                    .ThenByDescending(q=> q.CreatedAt)
                     .ProjectTo<QuestionViewModel>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
 
