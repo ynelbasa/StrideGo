@@ -12,8 +12,6 @@ export class QuestionService {
   private questionApiUrl = environment.apiUrl + 'question';
   // TODO: Setup UserService and get the authenticated user
   private userId = 'A7F7F628-B1BE-4884-AFBB-537B75F17CAB';
-  // TODO: Implement filtering by question category, default to first category for now
-  private questionCategoryId = 1;
   
   constructor(private http: HttpClient) { }
 
@@ -21,10 +19,10 @@ export class QuestionService {
     return this.http.get<Question[]>(this.questionApiUrl);
   }
 
-  create(questionText):Observable<number> {
+  create(questionText, questionCategoryId):Observable<number> {
     let question = {
       userId: this.userId,
-      questionCategoryId: this.questionCategoryId,
+      questionCategoryId: questionCategoryId,
       text: questionText
     };
     

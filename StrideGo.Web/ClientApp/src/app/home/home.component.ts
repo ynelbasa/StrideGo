@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Question } from '../question/shared/question'
+import { Question } from '../question/shared/question';
 import { QuestionService } from '../question/shared/question.service';
-import { QuestionCategory } from '../question/shared/question-category.enum'
+import { QuestionCategory, QuestionCategoryRoute } from '../question/shared/question-category.enum';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +14,7 @@ import { QuestionCategory } from '../question/shared/question-category.enum'
 export class HomeComponent implements OnInit {
   public pageTitle = "Home";  
   public questions: Question[];
+  public questionCategoryId: number;
   showAddQuestionForm = false;
   questionTextInput: string = '';
   
@@ -26,20 +27,24 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params  => {
       switch(params['category']) {
-        case QuestionCategory.Training:{       
+        case QuestionCategoryRoute.Training:{       
         this.pageTitle = 'Training';
+        this.questionCategoryId = QuestionCategory.Training;
           break;
         }
-        case QuestionCategory.InjuryRecovery:{ 
+        case QuestionCategoryRoute.InjuryRecovery:{ 
         this.pageTitle = 'Injury and Recovery';
+        this.questionCategoryId = QuestionCategory.InjuryRecovery;
           break;
         }
-        case QuestionCategory.RunningGears: {
+        case QuestionCategoryRoute.RunningGears: {
         this.pageTitle = 'Running Gears';
+        this.questionCategoryId = QuestionCategory.RunningGears;
           break;
         }
-        case QuestionCategory.Nutrition: {
+        case QuestionCategoryRoute.Nutrition: {
         this.pageTitle = 'Nutrition';
+        this.questionCategoryId = QuestionCategory.Nutrition;
           break;
         }   
       }
@@ -51,7 +56,7 @@ export class HomeComponent implements OnInit {
   }
 
   createQuestion() {
-    this.questionService.create(this.questionTextInput).subscribe(result => {
+    this.questionService.create(this.questionTextInput, this.questionCategoryId).subscribe(result => {
       this.questions.unshift({id: result, text: this.questionTextInput, askedBy: 'Ynel Basa', answerCount: 0});
 
       // Close question form and reset input fields

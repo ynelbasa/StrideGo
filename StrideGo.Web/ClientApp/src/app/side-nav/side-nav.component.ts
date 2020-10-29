@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QuestionCategoryRoute } from '../question/shared/question-category.enum';
 
 @Component({
   selector: 'app-side-nav',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class SideNavComponent implements OnInit {
+  public questionCategoryRoute = QuestionCategoryRoute;
   constructor() { }
 
   ngOnInit() { }
