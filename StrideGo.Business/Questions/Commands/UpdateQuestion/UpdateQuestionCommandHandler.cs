@@ -27,6 +27,8 @@ namespace StrideGo.Business.Questions.Commands.UpdateQuestion
             }
 
             entity.Text = request.Text;
+            entity.UpdatedAt = DateTime.UtcNow;
+
             await _context.SaveChangesAsync(cancellationToken);
 
             return Unit.Value;

@@ -26,6 +26,7 @@ namespace StrideGo.Business.Questions.Commands.DeleteQuestion
                 throw new EntityNotFoundException(nameof(Question), request.Id);
             }
 
+            entity.UpdatedAt = DateTime.UtcNow;
             entity.IsActive = false;
             await _context.SaveChangesAsync(cancellationToken);
 
