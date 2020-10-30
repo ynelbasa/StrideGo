@@ -23,12 +23,28 @@
   background-color: #f8f9fa;
 }
 
+.bg-blue {
+  background-color: #142b40;
+}
+
+.color-blue {
+  color: #142b40;
+}
+
 .color-green {
   color: #2eb872;
 }
 
 .color-red {
   color: #fa4659;
+}
+
+.color-gray {
+  color: #6f7f88;
+}
+
+.font-weight-500 {
+  font-weight: 500;
 }
 
 .fa,
@@ -42,4 +58,18 @@
 .text-underline:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+.profile-thumbnail {
+  background-image: url("assets/avatar-1.svg");
+  background-size: cover;
+  width: 45px;
+  height: 45px;
+  border: 1px solid #6f7f88;
+  border-radius: 45px;
+  margin: 5px;
+}
+
+.default-border-radius {
+  border-radius: 25px;
 }

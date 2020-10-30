@@ -5,16 +5,6 @@
   margin: 10px 130px;
 }
 
-.profile-thumbnail {
-  background-image: url("../../assets/avatar-1.svg");
-  background-size: cover;
-  width: 45px;
-  height: 45px;
-  border: 1px solid gray;
-  border-radius: 45px;
-  margin: 5px;
-}
-
 @media (max-width: 768px) {
   .question-card {
     margin: 10px 20px;

@@ -2,3 +2,10 @@
 .ask-question-form {
   margin: 10px 130px;
 }
+
+@media (max-width: 768px) {
+  .action-container,
+  .ask-question-form {
+    margin: 5px;
+  }
+}
