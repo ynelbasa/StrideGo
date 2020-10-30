@@ -6,7 +6,7 @@
       <span>Ask Question</span>
     </div>
   </div>
-  <div class="ask-question-form" [style.display]="showAddQuestionForm ? 'block' : 'none'">
+  <div class="ask-question-form" *ngIf="showAddQuestionForm">
     <textarea class="form-control" [(ngModel)]="questionTextInput" rows="3"></textarea>
     <div class="d-flex flex-row-reverse my-2">
       <div class="btn-default-dark" (click)="createQuestion()">

@@ -3,5 +3,6 @@ export interface Question {
   text: string;
   askedBy: string;
   answerCount: number;
-  isEditing?: boolean;
+  isEditing: boolean;
+  showAnswer: boolean;
 }
