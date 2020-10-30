@@ -28,6 +28,8 @@ namespace StrideGo.Business.Answers.Queries.GetAnswerList
             {
                 var answerList = await _context.Answers
                     .Where(a => !request.QuestionId.HasValue || a.QuestionId == request.QuestionId)
+                    .OrderByDescending(a => a.UpdatedAt)
+                    .ThenByDescending(a => a.CreatedAt)
                     .ProjectTo<AnswerViewModel>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
 
