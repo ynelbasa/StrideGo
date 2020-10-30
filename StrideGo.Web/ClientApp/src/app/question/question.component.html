@@ -28,10 +28,12 @@
         </div>
         <div class="p-2 bd-highlight">
             <i class="fas fa-comments fa-lg"></i>
-            <span class="text-underline ml-2" (click)="showAnswer = true;">{{ question.answerCount }} answers</span>
+            <span class="text-underline ml-2" (click)="showAnswer = !showAnswer">{{ question.answerCount }}
+                answers</span>
         </div>
     </div>
-    <div class="d-flex bd-highlight font-weight-500 align-items-center default-border-radius" *ngIf="showAnswer">
+    <div class="d-flex bd-highlight mx-4 my-2 font-weight-500 align-items-center default-border-radius"
+        *ngIf="showAnswer">
         <div class=" bd-highlight">
             <div class="profile-thumbnail"></div>
         </div>
