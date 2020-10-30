@@ -11,20 +11,17 @@ export class QuestionComponent implements OnInit {
   @Input() question: Question;  
   @Output() deleteQuestionEvent = new EventEmitter<Question>();
   
+  private isEditing: boolean = false;
+  private showAnswer: boolean = false;
   constructor(private questionService: QuestionService) { 
   }
 
   ngOnInit() {
-    this.question.isEditing = false;
-  }
-
-  toggleEditing() {
-    this.question.isEditing = !this.question.isEditing;
   }
 
   updateQuestion() {
     this.questionService.update(this.question).subscribe(() => {
-      this.question.isEditing = false;    
+      this.isEditing = false;    
     }, error => console.error(error));
   }
 
