@@ -1,12 +1,15 @@
-<div class="d-flex bd-highlight mx-3 my-1 p-2 font-weight-500 align-items-center bg-white default-border-radius">
-    <div class="bd-highlight">
-        <div class="profile-thumbnail"></div>
+<div class="mx-3 my-1 p-2 bg-white default-border-radius">
+    <div class="d-flex bd-highlight font-weight-500 align-items-center ">
+        <div class="bd-highlight">
+            <div class="profile-thumbnail"></div>
+        </div>
+        <div class="bd-highlight">
+            <span class="color-gray">Anonymous</span>
+        </div>
+        <div class="ml-auto bd-highlight">
+            <i class="fas fa-edit fa-lg"></i>
+            <i class="fas fa-times-circle fa-lg color-red"></i>
+        </div>
     </div>
-    <div class="bd-highlight">
-        <span class="color-gray">Anonymous</span>
-    </div>
-    <div class="ml-auto bd-highlight">
-        <i class="fas fa-edit fa-lg"></i>
-        <i class="fas fa-times-circle fa-lg color-red"></i>
-    </div>
+    <div class="m-3">{{ answer.text }}</div>
 </div>
