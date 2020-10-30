@@ -27,7 +27,7 @@ namespace StrideGo.Business.Questions.Queries.GetQuestionList
             public async Task<QuestionListViewModel> Handle(GetQuestionListQuery request, CancellationToken cancellationToken)
             {
                 var questionList = await _context.Questions
-                    .Where(q => q.IsActive && (request.QuestionCategoryId == null || q.QuestionCategoryId == request.QuestionCategoryId ))
+                    .Where(q => q.IsActive && (!request.QuestionCategoryId.HasValue || q.QuestionCategoryId == request.QuestionCategoryId ))
                     .OrderByDescending(q => q.UpdatedAt)
                     .ThenByDescending(q=> q.CreatedAt)
                     .ProjectTo<QuestionViewModel>(_mapper.ConfigurationProvider)

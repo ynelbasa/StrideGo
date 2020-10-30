@@ -10,6 +10,7 @@ using StrideGo.Business.Answers.Commands.CreateAnswer;
 using StrideGo.Business.Answers.Commands.DeleteAnswer;
 using StrideGo.Business.Answers.Commands.UpdateAnswer;
 using StrideGo.Business.Answers.Queries.GetAnswerDetail;
+using StrideGo.Business.Answers.Queries.GetAnswerList;
 
 namespace StrideGo.API.Controllers
 {
@@ -21,6 +22,15 @@ namespace StrideGo.API.Controllers
         public AnswerController(IMediator mediator)
         {
             _mediator = mediator;
+        }
+
+        // GET api/<AnswerController>
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAll(int? questionId)
+        {
+            var answerList = await _mediator.Send(new GetAnswerListQuery { QuestionId = questionId });
+            return Ok(answerList);
         }
 
         // GET api/<AnswerController>/5
