@@ -46,6 +46,7 @@
         </div>
     </div>
     <div *ngIf="showAnswer && answers">
-        <answer *ngFor="let answer of answers" [answer]="answer"></answer>
+        <answer *ngFor="let answer of answers" [answer]="answer" (deleteAnswerEvent)="deleteAnswer($event)">
+        </answer>
     </div>
 </div>

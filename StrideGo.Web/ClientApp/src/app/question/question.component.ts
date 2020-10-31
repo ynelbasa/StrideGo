@@ -53,4 +53,11 @@ export class QuestionComponent implements OnInit {
       this.question.answerCount++;
     }, error => console.error(error));
   }
+
+  deleteAnswer(answer){    
+    let index: number = this.answers.indexOf(answer);
+    if (index !== -1) {
+        this.answers.splice(index, 1);
+    }   
+  }
 }

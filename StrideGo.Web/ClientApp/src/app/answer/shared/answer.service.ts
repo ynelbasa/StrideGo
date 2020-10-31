@@ -33,4 +33,9 @@ export class AnswerService {
     let answer = { id: answerData.id, text: answerData.text };
     return this.http.put(this.answerApiUrl, answer);
   }
+
+  delete(answerId:number) {
+    return this.http.delete(this.answerApiUrl + '/' + answerId);
+  }
+
 }
