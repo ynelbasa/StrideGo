@@ -7,13 +7,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrideGo.Web", "StrideGo.We
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrideGo.API", "StrideGo.API\StrideGo.API.csproj", "{85B0CC02-B93B-462C-ABDE-3E2F63F4BB4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrideGo.Business", "StrideGo.Business\StrideGo.Business.csproj", "{C931D52D-B16D-42BC-B619-340B2C918AF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrideGo.Business", "StrideGo.Business\StrideGo.Business.csproj", "{C931D52D-B16D-42BC-B619-340B2C918AF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrideGo.Domain", "StrideGo.Domain\StrideGo.Domain.csproj", "{18CFE1C6-BB6C-4478-9F0B-D3F38705EF64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrideGo.Domain", "StrideGo.Domain\StrideGo.Domain.csproj", "{18CFE1C6-BB6C-4478-9F0B-D3F38705EF64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrideGo.Storage", "StrideGo.Storage\StrideGo.Storage.csproj", "{E2CC1108-4EF1-40EC-8E3D-4B2838A5DDCC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrideGo.Storage", "StrideGo.Storage\StrideGo.Storage.csproj", "{E2CC1108-4EF1-40EC-8E3D-4B2838A5DDCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrideGo.Business.UnitTests", "StrideGo.Business.UnitTests\StrideGo.Business.UnitTests.csproj", "{47B7E231-E6FD-4EB1-9577-72BE388C14B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrideGo.Business.UnitTests", "StrideGo.Business.UnitTests\StrideGo.Business.UnitTests.csproj", "{47B7E231-E6FD-4EB1-9577-72BE388C14B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{34B5D5B0-8EFF-4D8A-BA00-CE0879014895}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Architecture", "Architecture", "{2A60BD93-471D-49EB-91B1-CDCFC1145EAD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E41C8D28-83F5-49A5-B380-65AB2CD52BDA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{F053A87C-A269-4270-A700-F2ECDB862515}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +56,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{02D56986-407B-4C4B-A82A-C663B2ABB4CF} = {F053A87C-A269-4270-A700-F2ECDB862515}
+		{85B0CC02-B93B-462C-ABDE-3E2F63F4BB4B} = {F053A87C-A269-4270-A700-F2ECDB862515}
+		{C931D52D-B16D-42BC-B619-340B2C918AF5} = {34B5D5B0-8EFF-4D8A-BA00-CE0879014895}
+		{18CFE1C6-BB6C-4478-9F0B-D3F38705EF64} = {34B5D5B0-8EFF-4D8A-BA00-CE0879014895}
+		{E2CC1108-4EF1-40EC-8E3D-4B2838A5DDCC} = {2A60BD93-471D-49EB-91B1-CDCFC1145EAD}
+		{47B7E231-E6FD-4EB1-9577-72BE388C14B6} = {E41C8D28-83F5-49A5-B380-65AB2CD52BDA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {30F9B9E3-4012-43D1-8978-1607F4072177}
