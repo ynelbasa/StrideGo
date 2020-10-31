@@ -28,4 +28,9 @@ export class AnswerService {
     
     return this.http.post<number>(this.answerApiUrl, answer);
   }
+
+  update(answerData:Answer) {
+    let answer = { id: answerData.id, text: answerData.text };
+    return this.http.put(this.answerApiUrl, answer);
+  }
 }

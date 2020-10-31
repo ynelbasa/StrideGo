@@ -1,4 +1,4 @@
-<div class="mx-3 my-1 p-2 bg-white default-border-radius">
+<div class="mx-3 my-1 p-3 bg-white default-border-radius">
     <div class="d-flex bd-highlight font-weight-500 align-items-center ">
         <div class="bd-highlight">
             <div class="profile-thumbnail"></div>
@@ -7,9 +7,17 @@
             <span class="color-gray">{{ answer.answeredBy }}</span>
         </div>
         <div class="ml-auto bd-highlight">
-            <i class="fas fa-edit fa-lg"></i>
+            <i class="fas fa-edit fa-lg" (click)="isEditing = !isEditing"></i>
             <i class="fas fa-times-circle fa-lg color-red"></i>
         </div>
     </div>
-    <div class="m-3">{{ answer.text }}</div>
+    <div class="m-2 text-truncate" *ngIf="!isEditing">{{ answer.text }}</div>
+    <div *ngIf="isEditing">
+        <textarea class="form-control m-2" [(ngModel)]="answer.text" rows="3"></textarea>
+        <div class="d-flex flex-row-reverse my-2">
+            <div class="btn-default-dark" (click)="updateAnswer()">
+                <span>Update</span>
+            </div>
+        </div>
+    </div>
 </div>

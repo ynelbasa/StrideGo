@@ -13,10 +13,10 @@ export class QuestionComponent implements OnInit {
   @Input() question: Question;  
   @Output() deleteQuestionEvent = new EventEmitter<Question>();
   
-  private answers: Answer[];
-  private isEditing: boolean = false;
-  private showAnswer: boolean = false;
-  private answerTextInput: string = '';
+  answers: Answer[];
+  isEditing: boolean = false;
+  showAnswer: boolean = false;
+  answerTextInput: string = '';
   constructor(private questionService: QuestionService, private answerService: AnswerService) { 
   }
 
