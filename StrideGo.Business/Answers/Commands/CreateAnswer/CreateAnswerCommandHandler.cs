@@ -24,6 +24,7 @@ namespace StrideGo.Business.Answers.Commands.CreateAnswer
                 QuestionId = request.QuestionId,
                 UserId = request.UserId,
                 Text = request.Text,
+                CreatedAt = DateTime.UtcNow,
                 IsActive = true                
             };
 

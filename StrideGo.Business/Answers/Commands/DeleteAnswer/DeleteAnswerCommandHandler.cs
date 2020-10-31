@@ -27,6 +27,8 @@ namespace StrideGo.Business.Answers.Commands.DeleteAnswer
             }
 
             entity.IsActive = false;
+            entity.UpdatedAt = DateTime.UtcNow;
+
             await _context.SaveChangesAsync(cancellationToken);
 
             return Unit.Value;
