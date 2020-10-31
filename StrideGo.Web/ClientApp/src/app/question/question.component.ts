@@ -16,6 +16,7 @@ export class QuestionComponent implements OnInit {
   private answers: Answer[];
   private isEditing: boolean = false;
   private showAnswer: boolean = false;
+  private answerTextInput: string = '';
   constructor(private questionService: QuestionService, private answerService: AnswerService) { 
   }
 
@@ -41,5 +42,15 @@ export class QuestionComponent implements OnInit {
         this.answers = result['answers'];
       }, error => console.error(error));
     }
+  }
+
+  createAnswer(){
+    this.answerService.create(this.answerTextInput, this.question.id).subscribe(result => {
+      let newAnswer = {id: result, text: this.answerTextInput, answeredBy: 'Ynel Basa'};
+      this.answers.unshift(newAnswer);
+      
+      this.answerTextInput = '';
+      this.question.answerCount++;
+    }, error => console.error(error));
   }
 }

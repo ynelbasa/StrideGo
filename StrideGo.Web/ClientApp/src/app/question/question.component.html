@@ -38,9 +38,10 @@
             <div class="profile-thumbnail"></div>
         </div>
         <div class="bd-highlight mx-2 flex-fill">
-            <textarea class="form-control default-border-radius" placeholder="Submit answer..." rows="1"></textarea>
+            <textarea class="form-control default-border-radius" [(ngModel)]="answerTextInput"
+                placeholder="Submit answer..." rows="1"></textarea>
         </div>
-        <div class="bd-highlight">
+        <div class="bd-highlight" (click)="createAnswer()">
             <span class="text-white bg-blue p-1 rounded"><i class="fas fa-paper-plane"></i></span>
         </div>
     </div>
