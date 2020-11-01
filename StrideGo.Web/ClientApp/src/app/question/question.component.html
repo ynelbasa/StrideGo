@@ -13,7 +13,16 @@
     </div>
     <div class="font-weight-bold m-3 text-truncate" *ngIf="!isEditing">{{ question.text }} </div>
     <div *ngIf="isEditing">
-        <textarea class="form-control" [(ngModel)]="question.text" rows="3"></textarea>
+        <textarea [id]="'question_' + question.id" [name]="'question_' + question.id" class="form-control"
+            [(ngModel)]="question.text" #questionText="ngModel" rows="3" minlength=20 maxlength=255 required></textarea>
+        <div class="text-danger text-right" *ngIf="questionText.invalid">
+            <div *ngIf="questionText.errors.required">
+                <em>Question cannot be empty.</em>
+            </div>
+            <div *ngIf="questionText.errors.minlength">
+                <em>Question must be at least 20 characters long.</em>
+            </div>
+        </div>
         <div class="d-flex flex-row-reverse my-2">
             <div class="btn-default-dark" (click)="updateQuestion()">
                 <span>Update</span>
