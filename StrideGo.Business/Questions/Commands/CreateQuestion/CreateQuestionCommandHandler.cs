@@ -19,9 +19,12 @@ namespace StrideGo.Business.Questions.Commands.CreateQuestion
 
         public async Task<int> Handle(CreateQuestionCommand request, CancellationToken cancellationToken)
         {
+            // TODO: Setup Identity and get the authenticated user
+            var userId = "A7F7F628-B1BE-4884-AFBB-537B75F17CAB";
+
             var entity = new Question
             {
-                UserId = request.UserId,
+                UserId = userId,
                 QuestionCategoryId = request.QuestionCategoryId,
                 Text = request.Text,
                 CreatedAt = DateTime.UtcNow,

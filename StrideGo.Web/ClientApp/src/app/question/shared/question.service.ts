@@ -10,8 +10,6 @@ import { Observable } from 'rxjs';
 
 export class QuestionService {
   private questionApiUrl = environment.apiUrl + 'question';
-  // TODO: Setup UserService and get the authenticated user
-  private userId = 'A7F7F628-B1BE-4884-AFBB-537B75F17CAB';
   
   constructor(private http: HttpClient) { }
 
@@ -25,7 +23,6 @@ export class QuestionService {
 
   create(questionText, questionCategoryId):Observable<number> {
     let question = {
-      userId: this.userId,
       questionCategoryId: questionCategoryId,
       text: questionText
     };

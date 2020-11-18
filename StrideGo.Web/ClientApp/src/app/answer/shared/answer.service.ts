@@ -10,8 +10,6 @@ import { Answer } from '../shared/answer'
 
 export class AnswerService {
   private answerApiUrl = environment.apiUrl + 'answer';
-  // TODO: Setup UserService and get the authenticated user
-  private userId = 'A7F7F628-B1BE-4884-AFBB-537B75F17CAB';
   
   constructor(private http: HttpClient) { }
 
@@ -22,7 +20,6 @@ export class AnswerService {
    create(answerText:string, questionId:number):Observable<number> {
     let answer = {
       questionId: questionId,
-      userId: this.userId,
       text: answerText
     };
     
