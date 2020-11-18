@@ -22,6 +22,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
    
+    // Reset form
+    this.showAddQuestionForm = false;
+
     this.route.params.subscribe(params  => {
       switch(params['category']) {
         case QuestionCategoryRoute.Training: {       
