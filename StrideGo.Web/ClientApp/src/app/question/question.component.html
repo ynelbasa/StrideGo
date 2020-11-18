@@ -42,16 +42,23 @@
                 answers</span>
         </div>
     </div>
-    <div class="d-flex bd-highlight mx-4 my-2 font-weight-500 align-items-center default-border-radius"
-        *ngIf="showAnswer">
+    <div class="d-flex bd-highlight mx-4 my-2 align-items-center default-border-radius" *ngIf="showAnswer">
         <div class=" bd-highlight">
             <div class="profile-thumbnail"></div>
         </div>
         <div class="bd-highlight mx-2 flex-fill">
-            <textarea class="form-control default-border-radius" [(ngModel)]="answerTextInput"
-                placeholder="Submit answer..." rows="1"></textarea>
+            <textarea class="form-control default-border-radius" [(ngModel)]="answerTextInput" #answerText="ngModel"
+                placeholder="Submit answer..." rows="1" minlength=20 maxlength=255 required></textarea>
+            <div class="text-danger text-right" *ngIf="answerText.invalid && (answerText.dirty || answerText.touched)">
+                <div *ngIf="answerText.errors.required">
+                    <em>Answer cannot be empty.</em>
+                </div>
+                <div *ngIf="answerText.errors.minlength">
+                    <em>Answer must be at least 20 characters long.</em>
+                </div>
+            </div>
         </div>
-        <div class="bd-highlight" (click)="createAnswer()">
+        <div class="bd-highlight" (click)="!answerText.invalid && createAnswer()">
             <span class="text-white bg-blue p-1 rounded"><i class="fas fa-paper-plane"></i></span>
         </div>
     </div>
