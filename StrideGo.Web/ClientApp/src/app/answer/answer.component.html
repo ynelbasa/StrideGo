@@ -15,7 +15,7 @@
     <div *ngIf="isEditing">
         <textarea [id]="'answer_' + answer.id" [name]="'answer_' + answer.id" class="form-control m-2"
             [(ngModel)]="answer.text" #answerText="ngModel" rows="3" minlength=20 maxlength=255 required></textarea>
-        <div class="text-danger text-right" *ngIf="answerText.invalid">
+        <div class="text-danger text-right" *ngIf="answerText.invalid && (answerText.dirty || answerText.touched)">
             <div *ngIf="answerText.errors.required">
                 <em>Answer cannot be empty.</em>
             </div>
